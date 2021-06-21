@@ -15,8 +15,9 @@ public class Mensual implements Suscripcion{
     }
 
     @Override
-    public boolean activa(Calendar calendar) {
-        return false;
+    public boolean activa(Calendar fecha) {
+        int dia_fecha = fecha.get(Calendar.DAY_OF_MONTH);
+        return this.dia == dia_fecha;
     }
 
     @Override

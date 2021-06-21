@@ -16,9 +16,9 @@ public class Diaria implements Suscripcion{
     @Override
     public boolean activa(Calendar fecha) {
 
-        if(caducidad.after(fecha)) return true;
+        return fecha.getTime().before(caducidad.getTime());
 
-        return false;
+
     }
 
     @Override

@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public interface Suscripcion{
 
-    boolean activa(Calendar calendar);
+    boolean activa(Calendar fecha);
     Usuario getUsuario();
     void setUsuario();
 

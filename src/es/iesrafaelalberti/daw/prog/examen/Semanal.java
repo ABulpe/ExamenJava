@@ -5,18 +5,21 @@ import java.util.Calendar;
 public class Semanal implements Suscripcion{
 
     private  Calendar caducidad;
-    private int día;
+    private int dia;
     private Usuario usuario;
 
     public Semanal(Calendar caducidad, int día, Usuario usuario) {
         this.caducidad = caducidad;
-        this.día = día;
+        this.dia = día;
         this.usuario = usuario;
     }
 
     @Override
-    public boolean activa(Calendar calendar) {
-        return false;
+    public boolean activa(Calendar fecha) {
+
+        int dia_fecha = fecha.get(Calendar.DAY_OF_MONTH);
+        return fecha.getTime().before(caducidad.getTime()) && dia_fecha == dia;
+
     }
 
     @Override
