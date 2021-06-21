@@ -24,12 +24,24 @@ class AgregadorTest {
         usuario = new Usuario("Alberto","Kelsier94","bulpe93@gmail.com");
         suscripcion1 = new Diaria(Calendar.getInstance(),usuario);
         suscripcion2 = new Semanal(Calendar.getInstance(),20,usuario);
-
+        agregador = new Agregador();
     }
 
     @AfterEach
     void tearDown() {
     }
 
+    @Test
+    void enviarSuscripciones(){
+        agregador.añadeSuscripcion(suscripcion1);
+        agregador.añadeSuscripcion(suscripcion2);
+        agregador.enviarSuscripciones();
+    }
 
+    @Test
+    void noticiasTest(){
+        Calendar fecha1 = Calendar.getInstance();
+        Calendar fecha2 = Calendar.getInstance();
+        System.out.println(agregador.noticias(fecha1,fecha2));
+    }
 }
